@@ -170,10 +170,13 @@ namespace
     };
 
     bool http::connect() {
-        std::string form_action = host + path + "?";
+        std::string form_action = host + path;
 
-        for( std::map<std::string,std::string>::iterator it = vars.begin(); it != vars.end(); ++it )
-            form_action += url_encode(it->first) + "=" + url_encode(it->second) + "&";
+		if( vars.size() ) {
+			form_action += "?";
+			for( std::map<std::string,std::string>::iterator it = vars.begin(); it != vars.end(); ++it )
+				form_action += url_encode(it->first) + "=" + url_encode(it->second) + "&";
+		}
 
         $windows(
             m_hSession = InternetOpenA("request 1",
