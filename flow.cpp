@@ -152,9 +152,9 @@ namespace
         std::string host, path, response, error;
 
         http() {
-            $windows( 
+            $windows(
                 m_hSession = 0;
-                m_hRequest = 0; 
+                m_hRequest = 0;
             )
         }
 
@@ -162,7 +162,7 @@ namespace
             $windows(
                 if( m_hSession != NULL ) InternetCloseHandle(m_hSession);
                 if( m_hRequest != NULL ) InternetCloseHandle(m_hRequest);
-            )                
+            )
         }
 
         bool connect();
@@ -172,11 +172,11 @@ namespace
     bool http::connect() {
         std::string form_action = host + path;
 
-		if( vars.size() ) {
-			form_action += "?";
-			for( std::map<std::string,std::string>::iterator it = vars.begin(); it != vars.end(); ++it )
-				form_action += url_encode(it->first) + "=" + url_encode(it->second) + "&";
-		}
+        if( vars.size() ) {
+            form_action += "?";
+            for( std::map<std::string,std::string>::iterator it = vars.begin(); it != vars.end(); ++it )
+                form_action += url_encode(it->first) + "=" + url_encode(it->second) + "&";
+        }
 
         $windows(
             m_hSession = InternetOpenA("request 1",
@@ -217,14 +217,14 @@ namespace
             if( error = "No request made to server", m_hRequest == NULL )
                 return false;
 
-            DWORD lBytesRead = 0, bufsz = 1024 ;
+            DWORD lBytesRead = 0, bufsz = 512 * 1024 ;
             std::vector<char> buff( bufsz );
-            bool ok; 
+            bool ok;
             while( ( ok = (InternetReadFile(m_hRequest, &buff[0], bufsz, &lBytesRead) != FALSE) ) && lBytesRead > 0 ) {
                 if( lBytesRead > bufsz ) {
                     return error = "Buffer overflow", false;
                 } else {
-                    response += std::string( &buff[0], lBytesRead );                   
+                    response += std::string( &buff[0], lBytesRead );
                 }
             }
 
@@ -312,7 +312,7 @@ namespace flow {
         status st { url };
         st.ok = downloader(st.url, st.code, st.data);
         if( st.ok ) {
-            if( good ) good( st ); 
+            if( good ) good( st );
         } else {
             st.data.clear();
             if( fail ) fail( st );
