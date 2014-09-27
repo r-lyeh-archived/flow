@@ -1,5 +1,5 @@
 // Flow is a lightweight http downloader
-// - rlyeh, mit licensed
+// - rlyeh, BOOST licensed
 
 #pragma once
 

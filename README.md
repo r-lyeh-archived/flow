@@ -4,7 +4,7 @@ flow
 - Flow is a lightweight network downloader with native fallbacks. Aimed to gamedev.
 - Flow is non-blocking friendly. Support for sync/async requests.
 - Flow is tiny. Single header and source files.
-- Flow is MIT licensed.
+- Flow is BOOST licensed.
 
 ### sample 
 ```c++
