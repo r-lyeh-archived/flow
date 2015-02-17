@@ -1,4 +1,4 @@
-flow
+flow <a href="https://travis-ci.org/r-lyeh/flow"><img src="https://api.travis-ci.org/r-lyeh/flow.svg?branch=master" align="right" /></a>
 ====
 
 - Flow is a lightweight network downloader with native fallbacks. Aimed to gamedev.
