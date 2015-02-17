@@ -1,6 +1,7 @@
 // Flow is a lightweight http downloader
 // - rlyeh, BOOST licensed
 
+#include <string.h>
 #include <functional>
 #include <iostream>
 #include <map>
