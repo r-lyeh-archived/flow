@@ -1,5 +1,5 @@
 // Flow is a lightweight http downloader
-// - rlyeh, BOOST licensed
+// - rlyeh, zlib/libpng licensed
 
 #pragma once
 
@@ -16,7 +16,7 @@ namespace flow
     };
 
     using callback = std::function<void(status &)>;
-    
+
     // sync api
     status download( const std::string &url, const callback &good = callback(), const callback &fail = callback() );
 

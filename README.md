@@ -4,9 +4,9 @@ flow <a href="https://travis-ci.org/r-lyeh/flow"><img src="https://api.travis-ci
 - Flow is a lightweight network downloader with native fallbacks. Aimed to gamedev.
 - Flow is non-blocking friendly. Support for sync/async requests.
 - Flow is tiny. Single header and source files.
-- Flow is BOOST licensed.
+- Flow is zlib/libpng licensed.
 
-### sample 
+### sample
 ```c++
 #include <cassert>
 #include <iostream>
